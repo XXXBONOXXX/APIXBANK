@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIX - Accesso Clienti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            margin: 20px 0;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h1>APIX - Accesso Clienti</h1>
+
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username / Nome utente" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="submit" value="Accedi / Login">
+    </form>
+
+    <div id="errorMessage" class="error-message"></div>
+</div>
+
+<script>
+    // Credenziali predefinite (username e password)
+    const correctUsername = "A1B2C3";
+    const correctPassword = "X9Y8Z7";
+
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if (username === correctUsername && password === correctPassword) {
+            // Reindirizza alla pagina del conto bancario se le credenziali sono corrette
+            window.location.href = "conto.html";
+        } else {
+            // Mostra un messaggio di errore se le credenziali sono errate
+            document.getElementById("errorMessage").textContent = "Username o Password non corretti.";
+        }
+    });
+</script>
+
+</body>
+</html>
+
